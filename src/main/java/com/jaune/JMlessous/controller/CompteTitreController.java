@@ -28,7 +28,7 @@ import com.jaune.JMlessous.model.CompteTitre;
 	public class CompteTitreController {
 		@Resource
 		CompteTitreDaoImpl  compteTDaoImpl;	
-		@PutMapping("/{idatt}/{idpd}")
+		@PutMapping("/{idprod}/{idCpt}")
 		public ResponseEntity<CompteTitre> affecterProduitCompte(@PathVariable(value = "id") int prodId,@PathVariable(value = "numCompte") int cptId) 
 				throws ResourceNotFoundException {
 		return compteTDaoImpl.affecterProduitsDerivésCopmteTitre(prodId, cptId);
