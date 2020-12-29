@@ -91,5 +91,9 @@ public class ProduitAssuranceDaoImpl {
         response.put("deleted", Boolean.TRUE);
         return response;
     }
+    //Achéter un produit d'assurance
+    
+   
+    
 
 }

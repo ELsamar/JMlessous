@@ -24,6 +24,8 @@ public class Employe extends Utilisateur {
     private List<Formation> formation;
 	@OneToMany(mappedBy = "employe")
 	private List<Conge> Conge;
+	@OneToMany(mappedBy = "employe")
+	private List<ProduitAssurance>pdassurances;
 
 	public float getSalaire() {
 		return salaire;
