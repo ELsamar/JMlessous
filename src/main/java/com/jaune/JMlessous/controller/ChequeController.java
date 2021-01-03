@@ -17,56 +17,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jaune.JMlessous.dao.ClientDaoImpl;
+import com.jaune.JMlessous.dao.ChequeDaoImpl;
 
 import com.jaune.JMlessous.exception.ResourceNotFoundException;
-import com.jaune.JMlessous.model.Client;
+import com.jaune.JMlessous.model.Cheque;
 
 
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/client")
-public class ClientController {
+@RequestMapping("/api/cheque")
+public class ChequeController {
 	
 	
 	 @Autowired
-	 ClientDaoImpl clientDaoImpl;	
+	ChequeDaoImpl chequeDaoImpl;	
 
 
-	@GetMapping(value = "/login/{username}/{password}")
-	public Client login(@PathVariable(value = "username") String username,@PathVariable(value = "password") String password) throws ResourceNotFoundException {
-	return clientDaoImpl.findByClient(username, password);
-	}
-	
 	
 	 @GetMapping("/all")
-	    public List<Client> getAllClient() {
-	        return clientDaoImpl.getAllClient();
+	    public List<Cheque> getAllCheque() {
+	        return chequeDaoImpl.getAllCheque();
 	    }
 	
 	    @GetMapping("/{id}")
-	    public ResponseEntity<Client> getClientById(@PathVariable(value = "id") int clientId)
+	    public ResponseEntity<Cheque> getChequeById(@PathVariable(value = "id") int ChequeId)
 	        throws ResourceNotFoundException {	    	
-	        return clientDaoImpl.getClientById(clientId);
+	        return chequeDaoImpl.getChequeById(ChequeId);
 	    }
 	    
 	    @PostMapping("/add")
-	    public Client createClient(@Validated @RequestBody Client client) {
-	        return clientDaoImpl.createClient(client);
+	    public Cheque createCheque(@Validated @RequestBody Cheque Cheque) {
+	        return chequeDaoImpl.createCheque(Cheque);
 	    }
 
 	    @PutMapping("/update/{id}")
-	    public ResponseEntity<Client> updateClient(@PathVariable(value = "id") int clientId,
-	         @Validated @RequestBody Client clientDetails) throws ResourceNotFoundException {
+	    public ResponseEntity<Cheque> updateCheque(@PathVariable(value = "id") int ChequeId,
+	         @Validated @RequestBody Cheque ChequeDetails) throws ResourceNotFoundException {
 	    
-	        return clientDaoImpl.updateClient(clientId, clientDetails);
+	        return chequeDaoImpl.updateCheque(ChequeId, ChequeDetails);
 	    }
 
 	    @DeleteMapping("/del/{id}")
-	    public Map<String, Boolean> deleteClient(@PathVariable(value = "id") int clientId)
+	    public Map<String, Boolean> deleteCheque(@PathVariable(value = "id") int ChequeId)
 	         throws ResourceNotFoundException {	    	
-	        return clientDaoImpl.deleteClient(clientId);
+	        return chequeDaoImpl.deleteCheque(ChequeId);
 	    }
 	}
 

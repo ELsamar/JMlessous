@@ -17,56 +17,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jaune.JMlessous.dao.ClientDaoImpl;
+import com.jaune.JMlessous.dao.CarnetChequeDaoImpl;
 
 import com.jaune.JMlessous.exception.ResourceNotFoundException;
-import com.jaune.JMlessous.model.Client;
+import com.jaune.JMlessous.model.CarnetCheque;
 
 
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/client")
-public class ClientController {
+@RequestMapping("/api/carnetcheque")
+public class CarnetChequeController {
 	
 	
 	 @Autowired
-	 ClientDaoImpl clientDaoImpl;	
+	 CarnetChequeDaoImpl carnetChequeDaoImpl;	
 
 
-	@GetMapping(value = "/login/{username}/{password}")
-	public Client login(@PathVariable(value = "username") String username,@PathVariable(value = "password") String password) throws ResourceNotFoundException {
-	return clientDaoImpl.findByClient(username, password);
-	}
-	
 	
 	 @GetMapping("/all")
-	    public List<Client> getAllClient() {
-	        return clientDaoImpl.getAllClient();
+	    public List<CarnetCheque> getAllCarnetCheque() {
+	        return carnetChequeDaoImpl.getAllCarnetCheque();
 	    }
 	
 	    @GetMapping("/{id}")
-	    public ResponseEntity<Client> getClientById(@PathVariable(value = "id") int clientId)
+	    public ResponseEntity<CarnetCheque> getCarnetChequeById(@PathVariable(value = "id") int CarnetChequeId)
 	        throws ResourceNotFoundException {	    	
-	        return clientDaoImpl.getClientById(clientId);
+	        return carnetChequeDaoImpl.getCarnetChequeById(CarnetChequeId);
 	    }
 	    
 	    @PostMapping("/add")
-	    public Client createClient(@Validated @RequestBody Client client) {
-	        return clientDaoImpl.createClient(client);
+	    public CarnetCheque createCarnetCheque(@Validated @RequestBody CarnetCheque CarnetCheque) {
+	        return carnetChequeDaoImpl.createCarnetCheque(CarnetCheque);
 	    }
 
 	    @PutMapping("/update/{id}")
-	    public ResponseEntity<Client> updateClient(@PathVariable(value = "id") int clientId,
-	         @Validated @RequestBody Client clientDetails) throws ResourceNotFoundException {
+	    public ResponseEntity<CarnetCheque> updateCarnetCheque(@PathVariable(value = "id") int CarnetChequeId,
+	         @Validated @RequestBody CarnetCheque CarnetChequeDetails) throws ResourceNotFoundException {
 	    
-	        return clientDaoImpl.updateClient(clientId, clientDetails);
+	        return carnetChequeDaoImpl.updateCarnetCheque(CarnetChequeId, CarnetChequeDetails);
 	    }
 
 	    @DeleteMapping("/del/{id}")
-	    public Map<String, Boolean> deleteClient(@PathVariable(value = "id") int clientId)
+	    public Map<String, Boolean> deleteCarnetCheque(@PathVariable(value = "id") int CarnetChequeId)
 	         throws ResourceNotFoundException {	    	
-	        return clientDaoImpl.deleteClient(clientId);
+	        return carnetChequeDaoImpl.deleteCarnetCheque(CarnetChequeId);
 	    }
 	}
 
