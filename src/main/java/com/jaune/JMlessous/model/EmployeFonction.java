@@ -1,6 +1,6 @@
 package com.jaune.JMlessous.model;
 
 public enum EmployeFonction {
-	DFinanciere,DMarketing,Rh, Conseiller
+	DFinanciere,DMarketing,Rh, Conseiller,assurance
 
 }

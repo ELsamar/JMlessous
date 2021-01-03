@@ -14,31 +14,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jaune.JMlessous.dao.AttributAssuranceDaoIml;
+import com.jaune.JMlessous.dao.AttributCompteCourantDaoIml;
 import com.jaune.JMlessous.exception.ResourceNotFoundException;
 import com.jaune.JMlessous.model.AttributAssurance;
+import com.jaune.JMlessous.model.AttributCompteCourant;
 
 
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/attributassurance")
-public class AttributAssuranceController {
+@RequestMapping("/api/attributcomptecourant")
+public class AttributCompteCourantController {
 		
 	 @Autowired
-	 AttributAssuranceDaoIml attributAssuranceDaoIml;	
+	 AttributCompteCourantDaoIml attributCompteCourantDaoIml;	
 	 @GetMapping("/all")
-	    public List<AttributAssurance> getAllattrAssuurance() {
-	        return attributAssuranceDaoIml.getAllattrAssuurance();
+	    public List<AttributCompteCourant> getAllattrCpt() {
+	        return attributCompteCourantDaoIml.getAllattrCpt();
 	    }
 	
 	    @GetMapping("/{id}")
-	    public ResponseEntity<AttributAssurance> getattrAssuranceById(@PathVariable(value = "id") int attributAssuranceID)
+	    public ResponseEntity<AttributCompteCourant> getattcptById(@PathVariable(value = "id") int attributcptID)
 	        throws ResourceNotFoundException {	    	
-	        return attributAssuranceDaoIml.getattrAssuranceById(attributAssuranceID);
+	        return attributCompteCourantDaoIml.getattcptById(attributcptID);
 	    }
 	    
 	    @PostMapping("/add")
-	    public AttributAssurance createattrAssuurance(@Validated @RequestBody AttributAssurance attributAssurance) {
-	        return attributAssuranceDaoIml.createattrAssuurance(attributAssurance);
+	    public AttributCompteCourant createattrCpt(@Validated @RequestBody AttributCompteCourant attributCompteCourant) {
+	        return attributCompteCourantDaoIml.createattrCpt(attributCompteCourant);
 	    }
 }

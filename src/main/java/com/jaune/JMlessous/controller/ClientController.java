@@ -52,7 +52,7 @@ public class ClientController {
 	    }
 	    
 	    @PostMapping("/add")
-	    public Client createEmploye(@Validated @RequestBody Client client) {
+	    public Client createClient(@Validated @RequestBody Client client) {
 	        return clientDaoImpl.createClient(client);
 	    }
 
