@@ -41,10 +41,10 @@ public class ProduitsDerivéesController {
 	    public ProduitsDerives createProduit(@Validated @RequestBody ProduitsDerives produitsDerives) {
 	        return pdDaoImp.createprodDerives(produitsDerives);
 	    }
-	//    @GetMapping("/offre")
-	  ///  public List<String> getOffre {
-	     //   return pdDaoImp.Offres();
-	  //  }
+	    @GetMapping("/offre")
+	   public List<String> offre() {
+	     return pdDaoImp.Offres();
+	    }
 	    
 	    @DeleteMapping("/delete/{id}")
 	    public Map<String, Boolean> deleteProd(@PathVariable(value = "id") int prodId)

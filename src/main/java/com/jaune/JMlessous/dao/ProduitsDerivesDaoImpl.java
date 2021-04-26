@@ -65,11 +65,13 @@ public class ProduitsDerivesDaoImpl {
 						final String name = e.select("td.std_txtB.ptop15.pbottom15.pright20.lineh_1_7 > a > div").text();
 						oo.add("Type d'offre: " +name);
 						oo.add("Entreprise : " +type);
-		      }			
+		      }
+		      
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-	return oo;
+
+				return oo;
 		}
 }
 
